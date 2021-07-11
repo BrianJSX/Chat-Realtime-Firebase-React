@@ -1,0 +1,12 @@
+.login { 
+    position: relative;
+    &__title{ 
+        display: flex;
+        justify-content: center;
+    }
+    &__button { 
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

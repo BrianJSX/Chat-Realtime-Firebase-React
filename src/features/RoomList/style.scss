@@ -1,0 +1,12 @@
+.collapse { 
+    display: flex;
+}
+.listRoom { 
+    color: #fff;
+    &__item { 
+        display: block;
+    }
+    &__addRoom {
+        padding: 1.5rem;
+    }
+}

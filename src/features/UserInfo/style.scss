@@ -1,0 +1,11 @@
+.userInfo { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    &__avatar { 
+    }
+    &__action { 
+        display: flex;
+    }
+}

@@ -1,0 +1,24 @@
+.message {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    &__header {
+        display: flex; 
+        align-items: center;
+        &__avatar { 
+            
+        }
+        &__name { 
+            font-size: 1rem;
+            font-weight: 600;
+            padding: .5rem;
+        }
+        &__createAt { 
+            color: rgb(216, 216, 216)
+        }
+    }   
+    &__content { 
+        display: flex;
+        margin-left: 2rem;
+    }
+}
