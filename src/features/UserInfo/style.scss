@@ -4,6 +4,8 @@
     justify-content: space-between;
     padding: 1rem;
     &__avatar { 
+        display: flex;
+        align-items: center;
     }
     &__action { 
         display: flex;

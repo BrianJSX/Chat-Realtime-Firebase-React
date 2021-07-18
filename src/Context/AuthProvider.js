@@ -22,13 +22,13 @@ function AuthProvider({children}) {
         setIsLoading(false);
         history.push('/login');
       }
-      console.log(users);
     });
 
     //cleanup
     return () => {
       unSubprise();
     };
+    
   }, [history]);
 
   return (
@@ -36,7 +36,7 @@ function AuthProvider({children}) {
       { isLoading ? <Spin></Spin> : children }
     </AuthContext.Provider>
   );
-
+  
 }
 
 export default AuthProvider;

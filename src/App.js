@@ -1,17 +1,22 @@
 import React from "react";
-import Login from "./components/Login";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ChatRoom from "./components/ChatRoom";
+import Login from "./components/Login";
+import AppProvider from "./Context/AppProvider";
 import AuthProvider from "./Context/AuthProvider";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ModalAddRoom from "./features/ModalAddRoom";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <Switch>
-          <Route component={Login} path="/login"></Route>
-          <Route component={ChatRoom} path="/"></Route>
-        </Switch>
+        <AppProvider>
+          <Switch>
+            <Route component={Login} path="/login"></Route>
+            <Route component={ChatRoom} path="/"></Route>
+          </Switch>
+          <ModalAddRoom></ModalAddRoom>
+        </AppProvider>
       </AuthProvider>
     </Router>
   );

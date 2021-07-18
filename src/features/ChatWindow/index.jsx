@@ -1,16 +1,21 @@
 import { Avatar, Button, Input, Tooltip, Form } from "antd";
 import { SendOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
 import "./style.scss";
-import React from "react";
+import React, { useContext, useMemo } from "react";
 import Message from "../Message";
+import { AppContext } from "../../Context/AppProvider";
 
 const ChatWindow = () => {
+  const { selectRoom, members } = useContext(AppContext);
+
   return (
     <div className="chat">
       <div className="chat__header">
         <div className="chat__header__left">
-          <div className="chat__header__left-name">Room 1</div>
-          <div className="chat__header__left-description">Đây là Room 1</div>
+          <div className="chat__header__left-name">{selectRoom?.name}</div>
+          <div className="chat__header__left-description">
+            {selectRoom?.description}
+          </div>
         </div>
         <div className="chat__header__right">
           <div className="chat__header__right-add">
@@ -23,12 +28,15 @@ const ChatWindow = () => {
               maxCount={2}
               maxStyle={{ color: "#f56a00", backgroundColor: "#fde3cf" }}
             >
-              <Tooltip title="A" placement="top">
-                <Avatar
-                  style={{ backgroundColor: "#87d068" }}
-                  icon={<UserOutlined />}
-                />
-              </Tooltip>
+              {members.map((member) => {
+                return (
+                  <Tooltip title={member.displayName} placement="top">
+                    <Avatar src={member.photoURL}>
+                      {member.photoURL ? "" : member.displayName?.charAt(0)?.toUpperCase()}
+                    </Avatar>
+                  </Tooltip>
+                );
+              })}
             </Avatar.Group>
           </div>
         </div>
@@ -37,19 +45,15 @@ const ChatWindow = () => {
         <div className="chat__content__message">
           <Message></Message>
           <Message></Message>
-          <Message></Message>
-          <Message></Message>
-          <Message></Message>
-          <Message></Message>
-          <Message></Message>
-          <Message></Message>
         </div>
         <div className="chat__content__form">
           <Form>
             <Form.Item>
               <Input></Input>
             </Form.Item>
-            <Button>Gửi <SendOutlined /></Button>
+            <Button>
+              Gửi <SendOutlined />
+            </Button>
           </Form>
         </div>
       </div>

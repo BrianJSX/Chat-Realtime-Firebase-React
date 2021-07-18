@@ -9,16 +9,18 @@ const fbProvider = new firebase.auth.FacebookAuthProvider();
 
 function Login() {
   const handleFbLogin = async  () => {
-    const { user, additionalUserInfo} = await auth.signInWithPopup(fbProvider);
+    const { user, additionalUserInfo } = await auth.signInWithPopup(fbProvider);
+
     if(additionalUserInfo?.isNewUser) { 
       addDocument('users', {
         displayName: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
-        uid: user.displayName,
+        uid: user.uid,
         providerId: additionalUserInfo.providerId
       });
     }
+
   };
 
   return (
