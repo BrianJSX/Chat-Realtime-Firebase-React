@@ -1,6 +1,8 @@
+import { ConsoleSqlOutlined } from "@ant-design/icons";
 import { find } from "lodash";
 import React, { createContext, useContext, useMemo, useState } from "react";
 import useFirebase from "../hooks/useFirebase";
+import useRoomList from "../hooks/useRoomList";
 import { AuthContext } from "./AuthProvider";
 
 export const AppContext = createContext();
@@ -38,7 +40,7 @@ function AppProvider({ children }) {
   }, [selectRoom?.members]);
 
   let members = useFirebase("users", usersCondition);
-
+  
   return (
     <AppContext.Provider
       value={{
@@ -48,7 +50,7 @@ function AppProvider({ children }) {
         selectedRoomId,
         setSelectedRoomId,
         selectRoom, 
-        members
+        members,
       }}
     >
       {children}

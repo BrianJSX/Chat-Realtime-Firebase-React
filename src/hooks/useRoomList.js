@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../components/firebase/config";
 
- const useFirebase = (collection, condition) => {
-
-  const [documents, setDocument] = useState([]);
+function useRoomList(collection, condition) {
+  const [document, setDocument] = useState();
 
   useEffect(() => {
-    let collectionRef = db.collection(collection).orderBy("createAt")
+    let collectionRef = db.collection(collection).orderBy("createAt").limit(2);
 
     if (condition) {
       if (!condition.compareValue || !condition.compareValue.length) {
@@ -17,7 +16,7 @@ import { db } from "../components/firebase/config";
         condition.operator,
         condition.compareValue
       );
-    };
+    }
 
     const unsubprice = collectionRef.onSnapshot((snapshot) => {
       const document = snapshot.docs.map((doc) => ({
@@ -26,12 +25,10 @@ import { db } from "../components/firebase/config";
       }));
       setDocument(document);
     });
-
     return unsubprice;
-
   }, [collection, condition]);
 
-  return documents;
+  return document;
 }
 
-export default useFirebase;
+export default useRoomList;

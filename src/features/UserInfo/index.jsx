@@ -19,7 +19,7 @@ function UserInfo() {
             {photoURL ? "" : displayName?.charAt(0).toUpperCase()}
           </Avatar>
         </Tooltip>
-        <Typography style={{ color: "#fff" }}>{displayName}</Typography>
+        <Typography style={{ color: "#000", marginLeft: '1rem' }}>{displayName}</Typography>
       </div>
       <div className="userInfo__action">
         <Button onClick={() => auth.signOut()} type="primary">

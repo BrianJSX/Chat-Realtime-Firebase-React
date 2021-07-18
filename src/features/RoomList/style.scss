@@ -2,11 +2,47 @@
     display: flex;
 }
 .listRoom { 
-    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #000;
+   
     &__item { 
         display: block;
     }
     &__addRoom {
         padding: 1.5rem;
+    }
+    &__Room{
+        display: flex;
+        align-items: center;
+        position: relative;
+        
+        &:hover { 
+            background-color: rgb(241, 240, 240);
+            cursor: pointer;
+        }
+        &-avatar { 
+            padding: .5rem
+        }
+        &-name { 
+            font-size: 1rem;
+            font-weight: 300;
+            padding: 1rem;
+            &__item {
+                color: #000;
+            }
+        }
+        &-action {
+            position: absolute;
+            right: 1.5rem;
+            padding: .5rem;
+            line-height: 0;
+            border-radius: 50%;
+            background-color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            border: 1px solid rgb(90, 89, 89);
+        }
     }
 }
