@@ -72,7 +72,7 @@ const ChatWindow = () => {
           </div>
           <div className="chat__header__right-member">
             <Avatar.Group
-              maxCount={2}
+              maxCount={3}
               maxStyle={{ color: "#f56a00", backgroundColor: "#fde3cf" }}
             >
               {members.map((member) => {
@@ -105,19 +105,23 @@ const ChatWindow = () => {
           })}
           <div ref={messagesEndRef} />
         </div>
-        <div className="chat__content__form">
-          <Form form={form}>
-            <Form.Item name="message">
-              <Input
-                onChange={handleInputChange}
-                onPressEnter={handleOnSubmit}
-              ></Input>
-            </Form.Item>
-            <Button onClick={handleOnSubmit}>
-              Gửi <SendOutlined />
-            </Button>
-          </Form>
-        </div>
+        <Form form={form}>
+          <div className="chat__content__main">
+            <div className="chat__content__main-form">
+              <Form.Item name="message" style={{ margin: 0 }}>
+                <Input
+                  onChange={handleInputChange}
+                  onPressEnter={handleOnSubmit}
+                ></Input>
+              </Form.Item>
+            </div>
+            <div className="chat__content__main-button">
+              <Button onClick={handleOnSubmit}>
+                Gửi <SendOutlined />
+              </Button>
+            </div>
+          </div>
+        </Form>
       </div>
     </div>
   );

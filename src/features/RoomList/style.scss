@@ -1,6 +1,4 @@
-.collapse { 
-    display: flex;
-}
+
 .listRoom { 
     position: absolute;
     left: 0;
@@ -10,7 +8,15 @@
     &__item { 
         display: block;
     }
+    &__main {
+        &-buttonMobile { 
+            display: none;
+        }
+    }
     &__addRoom {
+        &-buttonMobile { 
+            display: none ;
+        }
         padding: 1.5rem;
     }
     &__Room{
@@ -28,14 +34,19 @@
         &-avatar { 
             padding: .5rem
         }
-        &-name { 
-            font-size: 1rem;
-            font-weight: 300;
-            padding: 1rem;
-            &__item {
-                color: #000;
+        &__content { 
+            &-name { 
+                font-size: 1rem;
+                font-weight: 600;
+                &__item {
+                    color: #000;
+                }
+            }
+            &-description {
+
             }
         }
+       
         &-action {
             display: none;
             position: absolute;

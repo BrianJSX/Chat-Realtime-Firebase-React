@@ -3,11 +3,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    flex-wrap: wrap;
     &__avatar { 
         display: flex;
-        align-items: center;
     }
     &__action { 
         display: flex;
+    }
+    &__actionMobile { 
+        display: none;
     }
 }

@@ -1,0 +1,45 @@
+@media only screen and (max-width: 600px) {
+    .listRoom { 
+        &__addRoom { 
+            &-button { 
+                display: none;
+            }
+        }
+        &__main {
+            &-buttonMobile {
+                display: block;
+            }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__Room {
+            &:hover > &-action  { 
+                display: none;
+            } 
+            &__content {
+                display: flex;
+                &-name { 
+                  display: none;
+                }
+                &-description {
+                  display: none;
+                }
+            }
+        }
+    }
+    .userInfo {
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        &__action {
+            display: none;
+        }
+        &__displayName { 
+            display: none;
+        }
+        &__actionMobile {
+            display: block;
+        }
+    }
+}
