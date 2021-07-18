@@ -22,31 +22,23 @@ function RoomList() {
       </div>
       {rooms.map((room, index) => {
         return (
-          <div key={index} className="listRoom__Room" onClick={() => setSelectedRoomId(room.id)}>
+          <div
+            key={index}
+            className="listRoom__Room"
+            onClick={() => setSelectedRoomId(room.id)}
+          >
             <div className="listRoom__Room-avatar">
-              <Avatar size={50}>A</Avatar>
+              <Avatar size={50} style={{ backgroundColor: "#87d068" }}>
+                {room.name.charAt(0).toUpperCase()}
+              </Avatar>
             </div>
-            <div className="listRoom__Room-name">
-                {room.name}
-            </div>
+            <div className="listRoom__Room-name">{room.name}</div>
             <div className="listRoom__Room-action">
               <EllipsisOutlined />
             </div>
           </div>
         );
       })}
-
-      {/* {rooms.map((room, index) => {
-        return (
-          <Typography.Link
-            onClick={() => setSelectedRoomId(room.id)}
-            key={index}
-            className="listRoom__item"
-          >
-            {room.name}
-          </Typography.Link>
-        );
-      })} */}
     </div>
   );
 }

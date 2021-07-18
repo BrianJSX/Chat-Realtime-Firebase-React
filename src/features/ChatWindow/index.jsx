@@ -99,7 +99,7 @@ const ChatWindow = () => {
                 text={message.text}
                 photoURL={message.photoURL}
                 displayName={message.displayName}
-                createAt="dasddsa"
+                createAt={message.createAt}
               ></Message>
             );
           })}
