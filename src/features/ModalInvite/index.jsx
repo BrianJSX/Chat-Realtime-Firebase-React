@@ -1,12 +1,10 @@
-import Modal from "antd/lib/modal/Modal";
-import React, { useState } from "react";
-import { Form, Select, Button, Spin } from "antd";
-import { useForm } from "antd/lib/form/Form";
-import { debounce } from "lodash";
-import { db } from "../../components/firebase/config";
-import { useEffect } from "react";
+import { Form, Select, Spin } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
-import { Height } from "@material-ui/icons";
+import { useForm } from "antd/lib/form/Form";
+import Modal from "antd/lib/modal/Modal";
+import React, { useContext, useState } from "react";
+import { db } from "../../components/firebase/config";
+import { AppContext } from "../../Context/AppProvider";
 
 const fetchUser = (keyword) => {
   const userref = db
@@ -17,15 +15,23 @@ const fetchUser = (keyword) => {
 };
 
 function ModalInvite({ isAddRoomVisible, setIsModalVisible }) {
-  const [form] = useForm();
   const [dataOption, setDataOption] = useState();
   const [loading, setLoading] = useState(false);
+  const [form] = useForm();
+  const { selectRoom } = useContext(AppContext);
+
+
   let variableTimeOut = "";
 
   const { Option } = Select;
 
   const handleOk = () => {
-    console.log(...form.getFieldsValue());
+    const roomRef = db.collection("rooms").doc(selectRoom?.id);
+    roomRef.update({
+      members: [...selectRoom.members, ...form.getFieldsValue().memberInvite]
+    });
+    form.resetFields();
+    setIsModalVisible(false);
   };
 
   const handleCancel = () => {
@@ -72,7 +78,6 @@ function ModalInvite({ isAddRoomVisible, setIsModalVisible }) {
           >
             <Select
               mode="multiple"
-              labelInValue
               filterOption={false}
               notFoundContent={loading ? <Spin size="small" /> : null}
               placeholder="Vui lòng nhập tên bạn muốn thêm"

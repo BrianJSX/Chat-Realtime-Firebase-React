@@ -41,6 +41,7 @@ const ChatWindow = () => {
       displayName,
     });
     form.resetFields(["message"]);
+    setInputValue(null);
   };
   //message condition
   const messageCondition = useMemo(() => {
@@ -124,6 +125,7 @@ const ChatWindow = () => {
                     <Input
                       onChange={handleInputChange}
                       onPressEnter={handleOnSubmit}
+                      placeholder="Vui lòng nhập tin nhắn cần gửi...."
                     ></Input>
                   </Form.Item>
                 </div>
