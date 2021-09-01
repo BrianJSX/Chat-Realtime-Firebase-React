@@ -4,14 +4,14 @@ import 'firebase/analytics';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-var firebaseConfig = {
-    apiKey: "AIzaSyDsPHiYInvyhV7VMTVu17qozJU_Ji9l6K4",
-    authDomain: "chat-room-d86cc.firebaseapp.com",
-    projectId: "chat-room-d86cc",
-    storageBucket: "chat-room-d86cc.appspot.com",
-    messagingSenderId: "175119699376",
-    appId: "1:175119699376:web:0422fb622fef7590661a75",
-    measurementId: "G-F9J9PTY8L1"
+const firebaseConfig = {
+  apiKey: "AIzaSyAMAmq8lFQrPHfC_Zn9lcGyQos3hebym9Y",
+  authDomain: "chatroomv2-2e2a1.firebaseapp.com",
+  projectId: "chatroomv2-2e2a1",
+  storageBucket: "chatroomv2-2e2a1.appspot.com",
+  messagingSenderId: "538655746585",
+  appId: "1:538655746585:web:0efc374c0d3b003736d888",
+  measurementId: "G-RXT8VXH07B"
 };
 
 firebase.initializeApp(firebaseConfig);
